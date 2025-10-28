@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/JasperTarvainen/Full-stack#readme",
   "dependencies": {
+    "color": "^5.0.2",
+    "colors": "^1.4.0",
     "express": "^5.1.0"
   }
 }

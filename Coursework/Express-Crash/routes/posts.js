@@ -1,4 +1,5 @@
 import express from 'express';
+import { getPosts, getPost, createPost, updatePost, deletePost } from '../controllers/postControlle.js'
 const router = express.Router();
 
 let posts = [
@@ -8,24 +9,18 @@ let posts = [
 ];
 
 // Get all posts
-router.get('/', (req, res) => {
-    const limit = parseInt(req.query.limit);
-    if (!isNaN(limit) && limit > 0) {
-        res.status(200).json(posts.slice(0, limit));
-    } else {
-        res.status(200).json(posts);
-    }
-});
+router.get('/', getPosts);
 
 // Get a single post
-router.get('/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const post = posts.find((post) => post.id === id);
-    if (!post) {
-        res.status(404).json( {msg: `A post with the id of ${id} was not foud`})
-    } else {
-        res.status(200).json(post);
-    }
-});
+router.get('/:id', getPost)
+
+// Create new post
+router.post('/', createPost);
+
+// Update post
+router.put('/:id', updatePost);
+
+// Delete post
+router.delete('/:id', deletePost);
 
 export default router;

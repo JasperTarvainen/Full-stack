@@ -1,0 +1,25 @@
+{
+  "name": "full-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server",
+    "dev": "node --watch --env-file=.env server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasperTarvainen/Full-stack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasperTarvainen/Full-stack/issues"
+  },
+  "homepage": "https://github.com/JasperTarvainen/Full-stack#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

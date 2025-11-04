@@ -14,24 +14,19 @@ function Home() {
     if(isError) {
       console.log(message)
     }
-    if(!isLoading && user === null) {
-      navigate('/login')
-      return
-    }
-
     return () => {
       dispatch(reset())
     }
   }, [user, navigate, isError, message, dispatch])
 
   if(isLoading) {
-    return <Spinner />
+    return <spinner />
   }
 
   return (
   <>  
     <section className="heading">
-      <h1>Welcome {user.name}</h1>
+      <h1></h1>
     </section>
   </>  
 

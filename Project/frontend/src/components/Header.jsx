@@ -16,7 +16,7 @@ function Header() {
     <header className='header'>
         <div className='navbar-container'>
             <Link to="/" className='logo'>
-            <FaStore className="icon" /> Skins Teemu
+            <FaStore className="icon" /> Market
             </Link>
             <ul className='nav-links'>
                 {!user && (

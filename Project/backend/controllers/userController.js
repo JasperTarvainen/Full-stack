@@ -2,32 +2,21 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/userModel')
-
-//  Steam trade link validation (suggested by AI)
-const tradeLinkRegex = /^https:\/\/steamcommunity\.com\/tradeoffer\/new\/\?partner=\d+&token=[A-Za-z0-9_-]+$/
-
-
 // @desc    Register new user
 // @route   POST /api/users
 // @acces   Public
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, steamTradeLink } = req.body
+  const { name, email, password} = req.body
 
-  if (!name || !email || !password || !steamTradeLink) {
+  if (!name || !email || !password) {
     res.status(400)
     throw new Error('Please fill all the fields')
   }
 
-  // Check steam trade links format
-  if (!tradeLinkRegex.test(steamTradeLink)) {
-    res.status(400)
-    throw new Error('Invalid Steam trade link format')
-  }
-
-  // Check if user exists by email / steam trade link
+  // Check if user exists by email
   const userExists = await User.findOne({
-    $or: [{ email: email}, {steamTradeLink: steamTradeLink}],
+    $or: [{ email: email}],
   })
 
   if (userExists) {
@@ -35,11 +24,7 @@ const registerUser = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error(`User with ${email} already exists`)
     }
-    if (userExists.steamTradeLink === steamTradeLink) {
-      res.status(400)
-      throw new Error('This steam trade link is already used by another user')
-    }
-  }
+  }    
 
   // Hash password
   const salt = await bcrypt.genSalt(10)
@@ -49,8 +34,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
-    password: hashedPassword,
-    steamTradeLink,
+    password: hashedPassword
   })
 
   if (user) {
@@ -58,7 +42,6 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
-      steamTradeLink: user.steamTradeLink,
       token: generateToken(user._id)
     })
   } else {
@@ -97,38 +80,6 @@ const getMe = asyncHandler(async(req, res) => {
     res.status(200).json(req.user)
 })
 
-// Update trade link
-  const updateTradeLink = asyncHandler(async(req, res) => {
-    const { steamTradeLink } = req.body
-
-     if(!steamTradeLink) {
-      res.status(400)
-      throw new Error('Steam trade link is required')
-    }
-    if(tradeLinkRegex.test(steamTradeLink)) {
-      res.status(400)
-      throw new Error('Invalid Steam trade link format')
-    }
-
-    // Check if trade link already used by another user
-
-    const userExists = await User.findOne({
-      steamTradeLink,
-      _id: { $ne: req.user._id},
-    });
-    if (userExists) {
-      res.status(400)
-      throw new Error('This steam trade link is already used by another user')
-    }
-
-    const updateUser = await User.findByIdAndUpdate(
-      req.user._id,
-      {steamTradeLink},
-      {new: true}).Select('-password')
-      res.status(200).json(updateUser)
-    })
-
-
 
 // Generate Token
 const generateToken = (id) => {
@@ -139,5 +90,4 @@ module.exports = {
     registerUser,
     loginUser,
     getMe,
-    updateTradeLink,
 }

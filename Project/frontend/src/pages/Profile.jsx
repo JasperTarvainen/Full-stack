@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {logout, reset} from '../features/auth/authSlice'
+import "./Login.css"
 
 function Profile() {
     const navigate = useNavigate()
@@ -14,17 +15,17 @@ function Profile() {
     }
 
     return (
-        <section className='profile'>
-           <h1 className='text-xl font-semibold mb-4'>Your Profile</h1>
+        <div className='login-container'>
+        <div className='login-card'>  
+        <h1 className='login-title'>Your Profile</h1>
            <div className='profile-info'>
             <p><strong>Name:</strong> {user?.name}</p>
             <p><strong>Email:</strong> {user?.email}</p>
-            <p><strong>Steam Trade Link:</strong> {user?.steamTradeLink}</p>
            </div>
-           <button onClick={onLogout} className='btn btn-danger mt-4'>
-        Logout
-      </button>
-    </section> 
+        <button type="submit" onClick={onLogout} className='login-button'>Logout</button>
+        </div>
+        </div>  
+
     )
 }
 export default Profile

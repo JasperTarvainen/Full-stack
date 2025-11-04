@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { register, reset } from '../features/auth/authSlice'
 import Spinner from '../components/spinner'
+import "./Register.css"
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -65,80 +66,55 @@ function Register() {
   }
 
   return (
-    <>
-      <section className='form'>
-        <h1>
+    <div className="register-container">
+      <div className="register-card">
+        <h1 className="register-title">
           <FaUser /> Register
         </h1>
-        <p>Please create an account</p>
-      </section>
+        <p className="register-subtitle">Create an account</p>
 
-      <section className='form'>
-        <form onSubmit={onSubmit}>
-          <div className='form-group'>
-            <input
-              type='text'
-              className='form-control'
-              id='name'
-              name='name'
-              value={name}
-              placeholder='Enter your name'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='email'
-              className='form-control'
-              id='email'
-              name='email'
-              value={email}
-              placeholder='Enter your email'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
-              value={password}
-              placeholder='Enter password'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password2'
-              name='password2'
-              value={password2}
-              placeholder='Confirm password'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='text'
-              className='form-control'
-              id='steamTradeLink'
-              name='steamTradeLink'
-              value={steamTradeLink}
-              placeholder='Insert steam trade link'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <button type='submit' className='btn btn-block'>
-              Submit
-            </button>
-          </div>
+        <form onSubmit={onSubmit} className="register-form">
+          <input
+            type="text"
+            name="name"
+            value={name}
+            placeholder="Enter your name"
+            className="register-input"
+            onChange={onChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Enter your email"
+            className="register-input"
+            onChange={onChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Enter your password"
+            className="register-input"
+            onChange={onChange}
+            required
+          />
+          <input
+            type="password"
+            name="password2"
+            value={password2}
+            placeholder="Confirm your password"
+            className="register-input"
+            onChange={onChange}
+            required
+          />
+          <button type="submit" className="register-button">Submit</button>
         </form>
-      </section>
-    </>
-  )
+      </div>
+    </div>
+  );
 }
 
 export default Register

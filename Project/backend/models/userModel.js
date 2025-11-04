@@ -14,10 +14,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required:   [true, 'Please add a password']
     },
-    steamTradeLink: {
-        type: String,
-        required: [true, 'Add your steam tradelink.']
-    }
 },
 {
   timestamps: true

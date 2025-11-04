@@ -1,6 +1,9 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5000/api/goals/'
+const API_URL =
+  process.env.NODE_ENV === 'production'
+    ? '/api/goals'               
+    : 'http://localhost:5000/api/goals'; 
 
 // Create new goal
 
@@ -34,7 +37,7 @@ const deleteGoal = async (goalId, token)=> {
             Authorization: `Bearer ${token}`
         }
     }
-    const response = await axios.delete(API_URL + goalId, config)
+    const response = await axios.delete(`${API_URL}/${goalId}`, config)
 
     return response.data
 }

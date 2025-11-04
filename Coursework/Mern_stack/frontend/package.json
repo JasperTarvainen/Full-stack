@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^2.9.2",
+    "@reduxjs/toolkit": "^2.10.0",
     "axios": "^1.13.1",
     "cra-template-redux": "2.0.0",
     "http-proxy-middleware": "^3.0.5",

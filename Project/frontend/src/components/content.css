@@ -1,0 +1,102 @@
+.content {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #ebeae2;
+}
+
+.content h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: rgb(0, 0, 0)
+}
+
+.content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.content-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 260px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  color: black
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+}
+
+.content-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+  color: #0252ff;
+}
+
+/* Review */
+
+.reviews {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+.reviews h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: rgb(0, 0, 0)
+}
+
+/* Footer */
+
+.footer {
+  background-color: #0252ff;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1800px;
+  margin: 50px
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+  position: top;
+  padding: 50px 70px;
+  transition: all 0.3s ease;
+}
+
+
+.footer-links a:hover {
+  color: #19048f;
+  transform: translateY(-2px);
+}
+
+.footer-socials {
+  left: 30px;
+  display: flex;
+  gap: 45px;
+}
+
+.social-icon {
+  background-color: #333;
+  padding: 12px;
+  border-radius: 50%;
+  color: #fff; 
+  font-size: 30px;
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  background-color: #19048f;
+  transform: translateY(-3px);
+}

@@ -3,12 +3,12 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #111111;
+  background-color: #fffbfb;
   font-family: 'Arial', sans-serif;
 }
 
 .login-card {
-  background-color: #1a1a1a; 
+  background-color: #000000; 
   padding: 40px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -28,7 +28,8 @@
 .login-title {
   margin-bottom: 24px;
   font-size: 28px;
-  color: #f6fa0e;
+  color:  #0252ff;
+;
 }
 
 /* Form */
@@ -49,15 +50,15 @@
 
 .login-input:focus {
   outline: none;
-  border-color: #eafa07;
+  border-color: #023dff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
 /* Button */
 .login-button {
   padding: 12px 16px;
-  background-color: #fbff04;
-  color: rgb(15, 15, 15);
+  background-color: #0252ff;
+  color: white;
   font-size: 16px;
   font-weight: bold;
   border: none;
@@ -67,8 +68,8 @@
 }
 
 .login-button:hover {
-  background-color: #030303;
-  color: rgb(235, 252, 2);
+  background-color: white;
+  color: #0252ff;
   transform: scale(1.02);
 }
 

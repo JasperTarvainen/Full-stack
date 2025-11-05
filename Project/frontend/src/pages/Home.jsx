@@ -2,7 +2,11 @@ import { useEffect } from "react"
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {reset} from '../features/auth/authSlice'
-import Spinner from '../components/spinner'
+import spinner from '../components/spinner'
+import Banner from '../components/banner'
+import Frontpagecontent from '../components/Frontpagecontent'
+import Reviews from "../components/reviews"
+import Footer from "../components/Footer"
 
 function Home() {
   const navigate = useNavigate()
@@ -26,7 +30,15 @@ function Home() {
   return (
   <>  
     <section className="heading">
-      <h1></h1>
+      <Banner 
+      title="Lorem ipsum"
+      subtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      button1
+      button2
+      />
+    <Frontpagecontent />
+    <Reviews />
+    <Footer />
     </section>
   </>  
 

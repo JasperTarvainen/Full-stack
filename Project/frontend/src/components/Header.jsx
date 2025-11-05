@@ -36,6 +36,11 @@ function Header() {
                 {user && (
                     <>
                     <li>
+                        <Link to="/balance">
+                        {user?.balance?.toFixed(2) || "0,00"} €
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/cart">
                         <FaShoppingCart />
                         </Link>

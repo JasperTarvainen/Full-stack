@@ -76,3 +76,10 @@
 .login-button:active {
   transform: scale(0.98);
 }
+
+.NoAccount {
+  text-align: bottom;
+  color: white;
+  text-decoration: none;
+  margin-top: 30px;
+}

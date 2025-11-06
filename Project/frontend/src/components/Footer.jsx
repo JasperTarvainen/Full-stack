@@ -1,8 +1,19 @@
 import './content.css' 
 import {FaFacebookF, FaInstagram, FaLinkedinIn,} from 'react-icons/fa'
-import {Link} from 'react-router-dom'
+import { useNavigate, Link} from 'react-router-dom'
 
-const Footer = () => {
+const Footer = ({user}) => {
+    const navigate = useNavigate()
+
+    const handleProfileClick = (e) => {
+        e.preventDefault()
+        if (!user) {
+            navigate('/login')
+        } else {
+            navigate('/profile')
+        }
+    }
+ 
     return (
         <footer className='footer'>
             <div className='footer-container'>
@@ -11,7 +22,7 @@ const Footer = () => {
                     <a href='#features'>Features</a>
                     <a href='#about'>about</a>
                     <a href='#contact'>Contact</a>
-                    <Link to='/profile'>Profile</Link>
+                    <a href='#profile' onClick={handleProfileClick}>Profile</a>
                 </div>
                 <div className='footer-socials'>
                     <div className='social-icon'><FaFacebookF /></div>

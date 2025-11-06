@@ -8,7 +8,6 @@ import Pricing from '../components/pricing'
 import Frontpagecontent from '../components/Frontpagecontent'
 import Reviews from "../components/reviews"
 import Footer from "../components/Footer"
-import Content from '../components/content.css'
 
 function Home() {
   const navigate = useNavigate()
@@ -41,7 +40,7 @@ function Home() {
     <Frontpagecontent />
     <Pricing/>
     <Reviews />
-    <Footer />
+    <Footer user={user}/>
     </section>
   </>  
 

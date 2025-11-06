@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../features/auth/authSlice'
 import Spinner from '../components/spinner'
+import {Link} from 'react-router-dom'
 import "./Login.css"
 
 function Login() {
@@ -82,6 +83,7 @@ function Login() {
         required
       />
       <button type="submit" className="login-button">Submit</button>
+      <Link className='NoAccount' to='/Register'>Dont have an account yet? Register here</Link>
       </form>
      </div>
    </div>

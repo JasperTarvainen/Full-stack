@@ -4,9 +4,11 @@ import {useSelector, useDispatch} from 'react-redux'
 import {reset} from '../features/auth/authSlice'
 import spinner from '../components/spinner'
 import Banner from '../components/banner'
+import Pricing from '../components/pricing'
 import Frontpagecontent from '../components/Frontpagecontent'
 import Reviews from "../components/reviews"
 import Footer from "../components/Footer"
+import Content from '../components/content.css'
 
 function Home() {
   const navigate = useNavigate()
@@ -37,6 +39,7 @@ function Home() {
       button2
       />
     <Frontpagecontent />
+    <Pricing/>
     <Reviews />
     <Footer />
     </section>

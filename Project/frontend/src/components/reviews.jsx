@@ -1,3 +1,8 @@
+// This part is done by AI: <div className="review-rating">
+//               {Array.from({ length: 5 }).map((_, i) => (
+ //               i < review.rating ? <FaStar key={i} color="#ffb400" /> : <FaRegStar key={i} color="#ffb400" />
+
+
 import {FaStar, FaRegStar} from 'react-icons/fa'
 
 const reviews = [

@@ -36,11 +36,6 @@ function Header() {
                 {user && (
                     <>
                     <li>
-                        <Link to="/cart">
-                        <FaShoppingCart />
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/profile">
                         <FaUser className='icon' /> {user.name || 'Profile'}
                         </Link>

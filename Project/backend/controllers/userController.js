@@ -35,7 +35,6 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password: hashedPassword,
-    balance: 0,
   })
 
   if (user) {
@@ -43,7 +42,6 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
-      balance: user.balance,
       token: generateToken(user._id)
     })
   } else {
@@ -66,7 +64,6 @@ const loginUser = asyncHandler(async(req, res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            balance: user.balance,
             token: generateToken(user._id)
         })
     } else {
@@ -83,35 +80,6 @@ const getMe = asyncHandler(async(req, res) => {
     res.status(200).json(req.user)
 })
 
-// @desc    Get user balance
-// @route   GET /api/users/balance
-// @acces   Private
-const getBalance = asyncHandler(async(req, res) => {
-  const user = await User.finById(req.user.id).select('balance')
-  if(!user) {
-    res.status(404)
-    throw new Error('User not found')
-  }
-  res.status(200).json({balance: user.balance})
-})
-
-// @desc    update user balance
-// @route   PUT /api/users/balance
-// @acces   Private
-const updateBalance = asyncHandler(async(req, res) => {
-  const {amount} = req.body
-
-  const user = await User.finById(req.user.id)
-  if (!user) {
-    res.status(404)
-    throw new Error('User not found')
-  }
-
-  user.balance += Number(amount)
-  await User.save()
-
-  res.status(200).json({balance: user.balance})
-})
 
 // Generate Token
 const generateToken = (id) => {
@@ -122,6 +90,4 @@ module.exports = {
     registerUser,
     loginUser,
     getMe,
-    getBalance,
-    updateBalance,
 }

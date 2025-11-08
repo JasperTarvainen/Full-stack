@@ -14,10 +14,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required:   [true, 'Please add a password']
     },
-    balance: {
-        type: Number,
-        default: 0
-    }
 },
 {
   timestamps: true

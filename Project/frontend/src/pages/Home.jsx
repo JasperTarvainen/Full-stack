@@ -8,6 +8,7 @@ import Pricing from '../components/pricing'
 import Frontpagecontent from '../components/Frontpagecontent'
 import Reviews from "../components/reviews"
 import Footer from "../components/Footer"
+import Chatbot from "../components/Chatbot"
 
 function Home() {
   const navigate = useNavigate()
@@ -42,6 +43,7 @@ function Home() {
     <Reviews />
     <Footer user={user}/>
     </section>
+    <Chatbot />
   </>  
 
   )

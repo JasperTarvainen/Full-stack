@@ -1,0 +1,90 @@
+.chat-container {
+    position: fixed;
+    bottom: 3rem;
+    right: 2rem;
+    z-index: 50;
+}
+
+.chatBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.chatBtn:hover {
+    background-color: rgb(79, 146, 245);
+}
+
+.chat-window {
+    width: 320px;
+    height: 320px;
+    background-color: antiquewhite;
+    box-shadow: 0 8px 16px;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.chatbot-messages {
+  flex: 1;       
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;  
+}
+
+.chatbot-message.bot {
+    color: rgb(27, 123, 248);
+    align-self: flex-end;
+}
+
+.chatbot-message.user {
+    flex: 1;
+    padding: 0.5rem;
+    color: rgb(0, 0, 0);
+    align-self: flex-start;
+    overflow: visible;
+    flex: 0;
+    gap: 0.5rem;
+}
+
+
+.chatbot-input-container {
+    display: flex;
+    padding: 0.1rem;
+    font-size: 0.5rem;
+}
+
+.chatbot-input {
+    flex: 0.7;
+    padding: 0.3rem 0.5rem;
+    border-radius: 9999px;
+    outline: none;
+}
+
+.send-btn {
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    background-color: white;
+    color: blue;
+}

@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import {FaComments} from "react-icons/fa"
 import "./Chatbot.css"
+const API_URL = process.env.REACT_APP_API_URL || "/api";
 
 function Chatbot() {
     const [messages, setMessages] = useState([])
@@ -17,7 +18,7 @@ function Chatbot() {
         setMessages((prev) => [...prev, userMessage])
 
         try {
-            const response = await fetch("http://localhost:5000/api/chat", {
+            const response = await fetch("/api/chat", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({message: input}),

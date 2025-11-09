@@ -25,7 +25,7 @@ app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/chat', chatRouter)
 
 // Serve frontend
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../frontend/build')));
 
   app.get(/(.*)/, (req, res) =>
